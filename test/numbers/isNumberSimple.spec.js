@@ -1,4 +1,4 @@
-const { NUMBERS } = require('..');
+const { NUMBERS } = require('../../dist/mth.cjs');
 
 describe('isNumberSimple:', () => {
   it('2 is simple', () => {
