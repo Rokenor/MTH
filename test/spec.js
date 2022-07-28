@@ -1,6 +1,16 @@
 const { NUMBERS } = require('..');
-const assert = require('assert');
 
-assert.strictEqual(NUMBERS.isNumberSimple('10'), false);
-
-console.log(`\u001B[32m✓\u001B[39m Tests passed`);
+describe('isNumberSimple:', () => {
+  it('2 is simple', () => {
+    expect(NUMBERS.isNumberSimple('2')).toBe(true);
+  });
+  it('19 is simple', () => {
+    expect(NUMBERS.isNumberSimple('19')).toBe(true);
+  });
+  it('10 is not simple', () => {
+    expect(NUMBERS.isNumberSimple('10')).toBe(false);
+  });
+  it('28 is not simple', () => {
+    expect(NUMBERS.isNumberSimple('28')).toBe(false);
+  });
+});
