@@ -1,2 +1,21 @@
-export const capitalize = (word) =>
-  word.charAt(0).toUpperCase() + word.slice(1);
+export const isNumberSimple = (number) => {
+  let count = 0;
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      count += 1;
+    }
+  }
+  return count === 0 ? true : false;
+};
+
+export const NUMBERS = {
+  isNumberSimple: (number) => {
+    let count = 0;
+    for (let i = 2; i < number; i++) {
+      if (number % i === 0) {
+        count += 1;
+      }
+    }
+    return count === 0 ? true : false;
+  },
+};
