@@ -1,34 +1,31 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import typescript from 'rollup-plugin-typescript2';
 import babel from 'rollup-plugin-babel';
-import pkg from './package.json';
+import { terser } from 'rollup-plugin-terser';
 
 export default [
+  // ES Modules
   {
-    input: 'src/index.js', // your entry point
+    input: 'src/index.ts',
     output: {
-      name: 'MTH', // package name
-      file: pkg.browser,
+      file: 'dist/index.es.js',
+      format: 'es',
+    },
+    plugins: [typescript(), babel({ extensions: ['.ts'] })],
+  },
+
+  // UMD
+  {
+    input: 'src/index.ts',
+    output: {
+      file: 'dist/index.umd.min.js',
       format: 'umd',
+      name: 'MTH',
+      indent: false,
     },
     plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        exclude: ['node_modules/**'],
-      }),
-    ],
-  },
-  {
-    input: 'src/index.js', // your entry point
-    output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' },
-    ],
-    plugins: [
-      babel({
-        exclude: ['node_modules/**'],
-      }),
+      typescript(),
+      babel({ extensions: ['.ts'], exclude: 'node_modules/**' }),
+      terser(),
     ],
   },
 ];
