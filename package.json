@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
+    "coverage": "jest --collectCoverage",
     "pretest": "npm run build"
   },
   "repository": {

@@ -38,3 +38,12 @@ describe('factoringANumber:', () => {
     expect(NUMBERS.factoringANumber(5478)).toStrictEqual([2, 3, 11, 83]);
   });
 });
+
+describe('getDivisorsANumber:', () => {
+  it('divisors of 84 is 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84', () => {
+    expect(NUMBERS.getDivisorsANumber(84)).toStrictEqual([1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84]);
+  });
+  it('divisors of 990 is 1, 2, 3, 5, 6, 9, 10, 11, 15, 18, 22, 30, 33, 45, 55, 66, 90, 99, 110, 165, 198, 330, 495, 990', () => {
+    expect(NUMBERS.getDivisorsANumber(990)).toStrictEqual([1, 2, 3, 5, 6, 9, 10, 11, 15, 18, 22, 30, 33, 45, 55, 66, 90, 99, 110, 165, 198, 330, 495, 990]);
+  });
+});
